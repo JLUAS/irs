@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { Router } from '@angular/router';
 
+interface Link {
+  title: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -36,5 +41,12 @@ export class MainComponent implements OnInit {
     this.authGoogleService.logout();
     this.router.navigate(['login']);
   }
+
+  links: Link[] = [
+    { title: 'Portal del Estudiante', url: 'https://www.tec.mx/es/portal-estudiante' },
+    { title: 'Calendario Académico', url: 'https://www.tec.mx/es/calendario-academico' },
+    { title: 'Biblioteca Virtual', url: 'https://www.tec.mx/es/biblioteca-virtual' },
+    // Agrega otros links relevantes de la carrera IRS
+  ];
 
 }
