@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc'
 
 @Injectable({
@@ -6,7 +7,7 @@ import { AuthConfig, OAuthService } from 'angular-oauth2-oidc'
 })
 export class AuthGoogleService {
 
-  constructor(private oauthService: OAuthService) {
+  constructor(private oauthService: OAuthService, private router: Router) {
     this.initLogin();
   }
 
@@ -22,6 +23,7 @@ export class AuthGoogleService {
     this.oauthService.configure(config);
     this.oauthService.setupAutomaticSilentRefresh();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.router.navigate(["/main"])
   }
 
   isAuthenticated(): boolean {
