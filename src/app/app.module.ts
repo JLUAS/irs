@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGoogleService } from './services/auth-google.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     OAuthModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuardService,
+    AuthGoogleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
+import { AuthConfig, OAuthService } from 'angular-oauth2-oidc'
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class AuthGoogleService {
   constructor(private oauthService: OAuthService, private router: Router) {
     this.initLogin();
   }
+
 
   initLogin() {
     const config: AuthConfig = {
@@ -23,23 +24,30 @@ export class AuthGoogleService {
     this.oauthService.configure(config);
     this.oauthService.setupAutomaticSilentRefresh();
 
-    // Subscribe to token_received event to set the token in localStorage
     this.oauthService.events.subscribe(event => {
+      console.log('Evento recibido:', event);
       if (event.type === 'token_received') {
         const token = this.oauthService.getAccessToken();
         localStorage.setItem('token-irs', token);
-        console.log('Token set in localStorage:', token);
-        // Optionally, you can navigate after token is received
+
         this.router.navigate(['/main']);
       }
     });
 
-    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => {
+      if (this.oauthService.hasValidAccessToken()) {
+        const token = this.oauthService.getAccessToken();
+        localStorage.setItem('token-irs', token);
+
+        this.router.navigate(['/main']);
+      }
+    });
   }
+
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token-irs');
-    console.log(!!token);
+    console.log(!!token)
     return !!token;
   }
 
@@ -49,10 +57,10 @@ export class AuthGoogleService {
 
   logout() {
     this.oauthService.logOut();
-    localStorage.removeItem('token-irs');
   }
 
   getProfile() {
     return this.oauthService.getIdentityClaims();
   }
+
 }

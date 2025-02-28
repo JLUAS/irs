@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { Router } from '@angular/router';
 
@@ -8,12 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss'],
   standalone:false
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
 
   constructor(
     private authGoogleService: AuthGoogleService,
     private router: Router
   ) { }
+  isAuthenticated:boolean=true
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isAuthenticated = this.authGoogleService.isAuthenticated();
+      if (!this.isAuthenticated) {
+        console.log("Authenticated in", this.isAuthenticated);
+        this.router.navigate(['/']);
+      }
+    }, 2000); // 2000 milisegundos = 2 segundos
+  }
+
 
   showData() {
     const data = JSON.stringify(this.authGoogleService.getProfile())
