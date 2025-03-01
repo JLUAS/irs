@@ -16,7 +16,7 @@ interface Link {
 export class MainComponent implements OnInit {
 
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 6;
   isAuthenticated: boolean = true;
 
   constructor(
