@@ -18,56 +18,68 @@ export class MainComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 6;
   isAuthenticated: boolean = true;
+    // Propiedad para el término de búsqueda.
+    searchTerm: string = '';
 
-  constructor(
-    private authGoogleService: AuthGoogleService,
-    private router: Router
-  ) { }
+    constructor(
+      private authGoogleService: AuthGoogleService,
+      private router: Router
+    ) { }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.isAuthenticated = this.authGoogleService.isAuthenticated();
-      if (!this.isAuthenticated) {
-        console.log("Authenticated in", this.isAuthenticated);
-        this.router.navigate(['/']);
+    ngOnInit(): void {
+      setTimeout(() => {
+        this.isAuthenticated = this.authGoogleService.isAuthenticated();
+        if (!this.isAuthenticated) {
+          console.log("Authenticated in", this.isAuthenticated);
+          this.router.navigate(['/']);
+        }
+      }, 2000); // Espera 2 segundos antes de verificar autenticación.
+    }
+
+    // Filtra los links según el término de búsqueda.
+    get filteredLinks(): Link[] {
+      if (!this.searchTerm) {
+        return this.links;
       }
-    }, 2000); // Espera 2 segundos antes de revisar la autenticación.
-  }
-
-  // Método que devuelve los links de la página actual
-  get paginatedLinks(): Link[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.links.slice(startIndex, startIndex + this.itemsPerPage);
-  }
-
-  // Calcula el número total de páginas
-  totalPages(): number {
-    return Math.ceil(this.links.length / this.itemsPerPage);
-  }
-
-  // Avanza a la siguiente página si es posible
-  nextPage(): void {
-    if (this.currentPage < this.totalPages()) {
-      this.currentPage++;
+      return this.links.filter(link =>
+        link.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
     }
-  }
 
-  // Retrocede a la página anterior si es posible
-  previousPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
+    // Aplica paginación sobre los links filtrados.
+    get paginatedLinks(): Link[] {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      return this.filteredLinks.slice(startIndex, startIndex + this.itemsPerPage);
     }
-  }
 
-  showData() {
-    const data = JSON.stringify(this.authGoogleService.getProfile());
-    console.log(data);
-  }
+    // Calcula el número total de páginas basado en los links filtrados.
+    totalPages(): number {
+      return Math.ceil(this.filteredLinks.length / this.itemsPerPage);
+    }
 
-  logOut() {
-    this.authGoogleService.logout();
-    this.router.navigate(['login']);
-  }
+    // Navega a la página siguiente si es posible.
+    nextPage(): void {
+      if (this.currentPage < this.totalPages()) {
+        this.currentPage++;
+      }
+    }
+
+    // Retrocede a la página anterior si es posible.
+    previousPage(): void {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    }
+
+    showData() {
+      const data = JSON.stringify(this.authGoogleService.getProfile());
+      console.log(data);
+    }
+
+    logOut() {
+      this.authGoogleService.logout();
+      this.router.navigate(['login']);
+    }
 
   links: Link[] = [
     {

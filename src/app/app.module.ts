@@ -9,6 +9,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGoogleService } from './services/auth-google.service';
+import { FormsModule } from '@angular/forms'; // Importa FormsModule
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthGoogleService } from './services/auth-google.service';
     BrowserModule,
     AppRoutingModule,
     OAuthModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     AuthGuardService,

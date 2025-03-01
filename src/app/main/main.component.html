@@ -1,6 +1,18 @@
 <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-  <div class="max-w-[60%] w-full bg-white shadow-lg rounded-lg p-6">
+  <div class="max-w-xl w-full bg-white shadow-lg rounded-lg p-6">
     <h1 class="text-3xl font-bold text-center mb-6">Links Importantes - Carrera IRS</h1>
+
+    <!-- Buscador -->
+    <div class="mb-4">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Buscar links..."
+        class="p-2 border rounded w-full"
+        (input)="currentPage = 1" />
+    </div>
+
+    <!-- Lista paginada -->
     <ul class="space-y-4">
       <li *ngFor="let link of paginatedLinks">
         <a [href]="link.url" target="_blank" class="block p-4 bg-blue-50 rounded hover:bg-blue-100 transition">
@@ -8,6 +20,7 @@
         </a>
       </li>
     </ul>
+
     <!-- Controles de paginación -->
     <div class="flex justify-between items-center mt-6">
       <button (click)="previousPage()"
