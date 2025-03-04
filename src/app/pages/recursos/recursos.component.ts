@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGoogleService } from '../../services/auth-google.service';
 
 @Component({
   selector: 'app-recursos',
@@ -6,6 +8,21 @@ import { Component } from '@angular/core';
   templateUrl: './recursos.component.html',
   styleUrl: './recursos.component.css'
 })
-export class RecursosComponent {
+export class RecursosComponent implements OnInit{
+
+  isAuthenticated: boolean = true;
+  constructor(
+    private authGoogleService: AuthGoogleService,
+    private router: Router
+  ) { }
+  ngOnInit(): void {
+          setTimeout(() => {
+        this.isAuthenticated = this.authGoogleService.isAuthenticated();
+        if (!this.isAuthenticated) {
+          console.log("Authenticated in", this.isAuthenticated);
+          this.router.navigate(['/']);
+        }
+      }, 1500); // Espera 2 segundos antes de verificar autenticación.
+  }
 
 }
