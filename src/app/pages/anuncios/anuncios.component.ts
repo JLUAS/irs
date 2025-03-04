@@ -22,6 +22,6 @@ export class AnunciosComponent implements OnInit{
           console.log("Authenticated in", this.isAuthenticated);
           this.router.navigate(['/']);
         }
-      }, 1500); // Espera 2 segundos antes de verificar autenticación.
+      }, 500); // Espera 2 segundos antes de verificar autenticación.
   }
 }
