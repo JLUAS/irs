@@ -9,13 +9,33 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGoogleService } from './services/auth-google.service';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { FormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { AnunciosComponent } from './pages/anuncios/anuncios.component';
+import { ProyectosComponent } from './pages/proyectos/proyectos.component';
+import { RecursosComponent } from './pages/recursos/recursos.component';
+import { NuestroProgramaComponent } from './pages/nuestro-programa/nuestro-programa.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { InicioStComponent } from './components/inicio-st/inicio-st.component';
+import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component'; // Importa FormsModule
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    NavComponent,
+    FooterComponent,
+    InicioComponent,
+    AnunciosComponent,
+    ProyectosComponent,
+    RecursosComponent,
+    NuestroProgramaComponent,
+    ContactoComponent,
+    InicioStComponent,
+    WorkInProgressComponent
   ],
   imports: [
     BrowserModule,

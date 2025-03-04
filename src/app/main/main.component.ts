@@ -27,13 +27,13 @@ export class MainComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      setTimeout(() => {
-        this.isAuthenticated = this.authGoogleService.isAuthenticated();
-        if (!this.isAuthenticated) {
-          console.log("Authenticated in", this.isAuthenticated);
-          this.router.navigate(['/']);
-        }
-      }, 2000); // Espera 2 segundos antes de verificar autenticación.
+      // setTimeout(() => {
+      //   this.isAuthenticated = this.authGoogleService.isAuthenticated();
+      //   if (!this.isAuthenticated) {
+      //     console.log("Authenticated in", this.isAuthenticated);
+      //     this.router.navigate(['/']);
+      //   }
+      // }, 2000); // Espera 2 segundos antes de verificar autenticación.
     }
 
     // Filtra los links según el término de búsqueda.

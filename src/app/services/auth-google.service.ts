@@ -17,7 +17,7 @@ export class AuthGoogleService {
       issuer: 'https://accounts.google.com',
       strictDiscoveryDocumentValidation: false,
       clientId: '342953985229-r32f674o0sk5e1kd7e0jdslnt2l0033d.apps.googleusercontent.com',
-      redirectUri: 'https://irs-kohl.vercel.app/main',
+      redirectUri: 'https://irs-kohl.vercel.app/inicio',
       scope: 'openid profile email',
     };
 

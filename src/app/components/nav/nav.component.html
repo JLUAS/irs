@@ -1,0 +1,56 @@
+<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+
+      <div class="flex items-center">
+        <a href="/inicio" class="text-2xl font-bold text-gray-900">IRS</a>
+      </div>
+
+      <div class="hidden md:flex md:items-center">
+        <a href="/inicio" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Inicio</a>
+        <a href="/anuncios" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Anuncios</a>
+        <a href="/proyectos" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Proyectos</a>
+        <a href="/recursos" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Recursos</a>
+        <a href="/nuestro programa" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Nuestro programa</a>
+        <a href="/contacto" class="ml-4 text-lg text-gray-600 hover:bg-blue-300 hover:text-white font-bold py-2 px-4 rounded-xl transition duration-150 ease-in-out">Contacto</a>
+      </div>
+
+      <div class="flex items-center md:hidden">
+        <button (click)="toggleMenu()" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <path *ngIf="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+
+            <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isOpen" class="md:hidden fixed inset-0 bg-white flex flex-col justify-center items-center">
+    <div class="space-y-6">
+      <a routerLink="/main" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Inicio</a>
+      <a href="anuncios" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Anuncios</a>
+      <a href=" proyectos" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Proyectos</a>
+      <a href="recursos" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Recursos</a>
+      <a href="nuestro programa" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Nuestro programa</a>
+      <a href="contacto" class="block text-gray-600 hover:text-gray-900 text-2xl fade">Contacto</a>
+    </div>
+
+    <div class="flex items-center md:hidden mt-24">
+      <button (click)="toggleMenu()" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <path *ngIf="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+
+          <path *ngIf="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
