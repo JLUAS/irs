@@ -22,7 +22,7 @@ export class NuestroProgramaComponent implements OnInit{
           console.log("Authenticated in", this.isAuthenticated);
           this.router.navigate(['/']);
         }
-      }, 500); // Espera 2 segundos antes de verificar autenticación.
+      }, 500);
   }
 
 }

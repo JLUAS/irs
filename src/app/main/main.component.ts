@@ -33,7 +33,7 @@ export class MainComponent implements OnInit {
       //     console.log("Authenticated in", this.isAuthenticated);
       //     this.router.navigate(['/']);
       //   }
-      // }, 2000); // Espera 2 segundos antes de verificar autenticación.
+      // }, 200); // Espera 2 segundos antes de verificar autenticación.
     }
 
     // Filtra los links según el término de búsqueda.

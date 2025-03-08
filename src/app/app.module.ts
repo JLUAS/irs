@@ -19,7 +19,8 @@ import { RecursosComponent } from './pages/recursos/recursos.component';
 import { NuestroProgramaComponent } from './pages/nuestro-programa/nuestro-programa.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { InicioStComponent } from './components/inicio-st/inicio-st.component';
-import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component'; // Importa FormsModule
+import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
+import { SummerInternshipsComponent } from './components/summer-internships/summer-internships.component'; // Importa FormsModule
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { WorkInProgressComponent } from './components/work-in-progress/work-in-p
     NuestroProgramaComponent,
     ContactoComponent,
     InicioStComponent,
-    WorkInProgressComponent
+    WorkInProgressComponent,
+    SummerInternshipsComponent
   ],
   imports: [
     BrowserModule,

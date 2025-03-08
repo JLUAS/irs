@@ -25,7 +25,7 @@ export class AuthGoogleService {
     this.oauthService.setupAutomaticSilentRefresh();
 
     this.oauthService.events.subscribe(event => {
-      console.log('Evento recibido:', event);
+
       if (event.type === 'token_received') {
         const token = this.oauthService.getAccessToken();
         localStorage.setItem('token-irs', token);
@@ -47,7 +47,6 @@ export class AuthGoogleService {
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token-irs');
-    console.log(!!token)
     return !!token;
   }
 
