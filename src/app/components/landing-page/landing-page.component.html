@@ -1,0 +1,29 @@
+<section class="bg-blue-600 text-white py-20">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="countdown-wrapper inline-block relative mx-auto">
+      <div class="countdown-numbers">
+        <span *ngFor="let num of countdownNumbers" class="block text-6xl font-extrabold leading-none">
+          {{ num }}
+        </span>
+      </div>
+    </div>
+    <p class="text-2xl mt-4">Estudiantes Inscritos</p>
+  </div>
+</section>
+
+
+<section class="max-w-7xl mx-auto px-4 py-10">
+  <div class="relative">
+    <div class="transition-all duration-500">
+      <div class="p-6 bg-white rounded">
+        <h2 class="text-2xl font-bold mb-4">Experiencia Internacional</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">
+          <div class="p-4 bg-gray-50 rounded shadow hover:scale-125 duration-300" *ngFor="let country of internationalExperiences">
+            <p class="font-semibold">{{ country.name }}</p>
+            <p>{{ country.count }} Estudiantes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

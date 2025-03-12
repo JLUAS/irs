@@ -1,6 +1,35 @@
-
+<!-- Footer -->
 <footer class="bg-gray-800 text-gray-400 py-8">
-  <div class="max-w-7xl mx-auto px-4 text-center">
+  <div class="max-w-7xl mx-auto px-4 text-center flex flex-col-reverse">
     <p>&copy; Creada por Jose Luis Urquieta Aguilar. Todos los derechos reservados.</p>
+    <!-- Botón para abrir el modal -->
+    <button (click)="openModal()" class="mt-4 underline text-blue-300 hover:text-blue-400">
+      Ver Objetivos Educacionales
+    </button>
   </div>
 </footer>
+
+<!-- Modal -->
+<div *ngIf="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+  <!-- Fondo semi-transparente; al hacer clic, se cierra el modal -->
+  <div class="fixed inset-0 bg-black opacity-50" (click)="closeModal()"></div>
+  <!-- Contenido del modal -->
+  <div class="bg-white rounded shadow-lg z-10 p-6 transition-all duration-500 max-w-lg mx-auto">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold">Objetivos Educacionales</h2>
+      <!-- Botón para cerrar el modal -->
+      <button (click)="closeModal()" class="text-gray-500 hover:text-gray-700 text-3xl leading-none">
+        &times;
+      </button>
+    </div>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>[OE1]</strong> Desarrollar oportunidades de negocio en industrias basadas en tecnologías robóticas y digitales.</li>
+      <li><strong>[OE2]</strong> Promover la responsabilidad social y el desarrollo sustentable del entorno.</li>
+      <li><strong>[OE3]</strong> Fomentar la actualización profesional permanente para adaptarse a los desafíos globales.</li>
+      <li><strong>[OE4]</strong> Alcanzar competencia internacional en robótica y sistemas digitales.</li>
+      <li><strong>[OE5]</strong> Desarrollar habilidades en investigación y estudios de posgrado en centros de alto prestigio.</li>
+      <li><strong>[OE6]</strong> Implementar procesos de toma de decisiones basados en tecnologías avanzadas.</li>
+      <li><strong>[OE7]</strong> Adaptarse eficazmente a ambientes de trabajo híbridos y multidisciplinarios.</li>
+    </ul>
+  </div>
+</div>

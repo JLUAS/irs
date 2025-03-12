@@ -1,0 +1,18 @@
+
+.countdown-wrapper {
+  height: 4rem; /* Altura equivalente a la altura de cada <span> */
+  overflow: hidden;
+}
+
+.countdown-numbers {
+  animation: countdown 5s steps(154) forwards;
+}
+
+@keyframes countdown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-calc(4rem * 154));
+  }
+}
