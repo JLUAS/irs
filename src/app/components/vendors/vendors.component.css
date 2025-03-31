@@ -1,0 +1,36 @@
+.vendors-container {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vendors-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.vendors-container ul {
+  list-style: none;
+  padding: 0;
+  columns: 2; /* divide la lista en dos columnas si hay espacio */
+  gap: 1rem;
+}
+
+.vendors-container li {
+  margin: 0.5rem 0;
+}
+
+.vendors-container a {
+  text-decoration: none;
+  color: #007acc;
+  transition: color 0.3s;
+}
+
+.vendors-container a:hover {
+  color: #005f99;
+  text-decoration: underline;
+}

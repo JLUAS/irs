@@ -21,7 +21,8 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { InicioStComponent } from './components/inicio-st/inicio-st.component';
 import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
 import { SummerInternshipsComponent } from './components/summer-internships/summer-internships.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component'; // Importa FormsModule
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { VendorsComponent } from './components/vendors/vendors.component'; // Importa FormsModule
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     InicioStComponent,
     WorkInProgressComponent,
     SummerInternshipsComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    VendorsComponent
   ],
   imports: [
     BrowserModule,
